@@ -81,6 +81,7 @@ export const Warichu: FC<{ content: string }> = ({ content }) => {
 
     window.addEventListener("resize", resetStyle);
     resetStyle();
+    setTimeout(resetStyle, 100);
     return () => window.removeEventListener("resize", resetStyle);
   }, []);
 
