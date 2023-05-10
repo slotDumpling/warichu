@@ -28,7 +28,7 @@ Warichu (inline cutting note) is a type of inline notation, where two lines of s
 
 </div>
 
-**这个 Repo 展示了一种割注的另类实现方法**
+## 这个 Repo 展示了一种割注的另类实现方法
 
 <div align="center">
 
