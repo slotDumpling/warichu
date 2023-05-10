@@ -1,6 +1,12 @@
-<h1 align="center">
-Inline cutting note / 割注 / 行内夹注
-</h1>
+## 这个 Repo 展示了割注的另类实现方法
+
+<div align="center">
+
+![屏幕录制2023-05-10 21 39 04](https://github.com/slotDumpling/warichu/assets/67586451/6f0099c9-1d7f-4cd8-82a4-f4dc2a8627dd)
+
+</div>
+
+## Inline cutting note / 割注 / 行内夹注
   
 <div align="center">
 
@@ -28,13 +34,7 @@ Warichu (inline cutting note) is a type of inline notation, where two lines of s
 
 </div>
 
-## 这个 Repo 展示了一种割注的另类实现方法
-
-<div align="center">
-
-![屏幕录制2023-05-10 21 39 04](https://github.com/slotDumpling/warichu/assets/67586451/6f0099c9-1d7f-4cd8-82a4-f4dc2a8627dd)
-
-</div>
+## 如何实现
 
 通过栅格形状的浮动伪元素限制了割注小字的空间，利用了浏览器自身能力来给割注排版，甚至可以折行。
 
