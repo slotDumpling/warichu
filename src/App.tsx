@@ -2,40 +2,39 @@ import { FC, useId, useState } from "react";
 import "./main.css";
 import { Warichu } from "./Warichu";
 
-type BlockType = "TEXT" | "WARICHU";
 type TextBlock = {
-  type: BlockType;
+  isWarichu: boolean;
   content: string;
 };
 
 const initBlocks: TextBlock[] = [
   {
-    type: "TEXT",
+    isWarichu: false,
     content:
       "『漢字御廃止之議』は、将軍に上申後久しく世に知られなかったが、明治32年に前島と同郷後進のかな文字論者小西信八が、国字改良論の最先覚としての前島の功を顕彰しようとして、『漢字御廃止之議』の草案をはじめ、『国文教育之儀ニ付建議』『国文教育施行ノ方法』",
   },
   {
-    type: "WARICHU",
+    isWarichu: true,
     content: "共に明治2年集議院に提出",
   },
   {
-    type: "TEXT",
+    isWarichu: false,
     content: "『学制御施行ニ先タチ国字改良相成度卑見内申書』",
   },
   {
-    type: "WARICHU",
+    isWarichu: true,
     content: "明治六年右大臣岩倉具視に上申",
   },
   {
-    type: "TEXT",
+    isWarichu: false,
     content: "『興国文廃漢字議』",
   },
   {
-    type: "WARICHU",
+    isWarichu: true,
     content: "同六年政府にも建議せんとして起草、都合により不提出",
   },
   {
-    type: "TEXT",
+    isWarichu: false,
     content:
       "の後の建白文をも合編、それに『前島密君国字国文改良建議書』の表題を付けて印刷し非売配布した小冊子によって、初めて一部の人々に知られ、更に33年4月国字改良の世論に応えて文部省が8名の国語調査委員を創設した際、その委員長を委嘱された前島が、「太陽」記者のもとめで同誌5月号に寄せられた『国語調査の意見』中に掲出した、同建白書の枢要な部分の公表によって、更に一般の知るところとなった",
   },
@@ -62,10 +61,10 @@ function App() {
       </div>
       <div className="text-area">
         {textBlocks.map((tb) =>
-          tb.type === "TEXT" ? (
-            <span key={tb.content}>{tb.content}</span>
-          ) : (
+          tb.isWarichu ? (
             <Warichu key={tb.content} content={tb.content} />
+          ) : (
+            <span key={tb.content}>{tb.content}</span>
           )
         )}
       </div>
@@ -80,7 +79,7 @@ const BlockDisplay: FC<{
   return (
     <div className="block-display">
       <label>割注</label>
-      <input type="checkbox" checked={textBlock.type === "WARICHU"} disabled />
+      <input type="checkbox" checked={textBlock.isWarichu} disabled />
       <input type="text" value={textBlock.content} disabled />
       <button onClick={deleteTextBlock}>削除</button>
     </div>
@@ -91,7 +90,7 @@ const BlockInput: FC<{ addTextBlock: (tb: TextBlock) => void }> = ({
   addTextBlock,
 }) => {
   const [content, setContent] = useState("");
-  const [type, setType] = useState<BlockType>("TEXT");
+  const [isWarichu, setIsWarichu] = useState(false);
   const checkboxId = useId();
 
   return (
@@ -100,8 +99,8 @@ const BlockInput: FC<{ addTextBlock: (tb: TextBlock) => void }> = ({
       <input
         id={checkboxId}
         type="checkbox"
-        checked={type === "WARICHU"}
-        onChange={(e) => setType(e.target.checked ? "WARICHU" : "TEXT")}
+        checked={isWarichu}
+        onChange={(e) => setIsWarichu(e.target.checked)}
       />
       <input
         type="text"
@@ -111,8 +110,9 @@ const BlockInput: FC<{ addTextBlock: (tb: TextBlock) => void }> = ({
       <button
         onClick={() => {
           if (!content) return;
-          addTextBlock({ type, content });
+          addTextBlock({ isWarichu, content });
           setContent("");
+          setIsWarichu((prev) => !prev);
         }}
       >
         追加
