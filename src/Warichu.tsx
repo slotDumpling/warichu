@@ -12,16 +12,17 @@ export const Warichu: FC<{ content: string }> = ({ content }) => {
     const midIndex = Math.ceil(content.length / 2);
     const str1 = content.slice(0, midIndex);
     const str2 = content.slice(midIndex);
-    const span1 = document.createElement("span");
-    const span2 = document.createElement("span");
-    span1.innerText = str1;
-    span2.innerText = str2;
-    document.body.append(span1);
-    const { width: w1 } = span1.getBoundingClientRect();
-    span1.remove();
-    document.body.append(span2);
-    const { width: w2 } = span2.getBoundingClientRect();
-    span2.remove();
+    const div = document.createElement("div");
+    div.classList.add("test-line-wrapper");
+    const p1 = document.createElement("p");
+    const p2 = document.createElement("p");
+    p1.innerText = str1;
+    p2.innerText = str2;
+    div.append(p1, p2);
+    document.body.appendChild(div);
+    const { width: w1 } = p1.getBoundingClientRect();
+    const { width: w2 } = p2.getBoundingClientRect();
+    div.remove();
     return w1 > w2 ? str1 : str2;
   }, [content]);
   const phStartEl = useRef<HTMLElement>(null);
@@ -81,7 +82,7 @@ export const Warichu: FC<{ content: string }> = ({ content }) => {
 
     window.addEventListener("resize", resetStyle);
     resetStyle();
-    setTimeout(resetStyle, 100);
+    document.fonts.ready.then(resetStyle);
     return () => window.removeEventListener("resize", resetStyle);
   }, []);
 
@@ -102,9 +103,9 @@ export const Warichu: FC<{ content: string }> = ({ content }) => {
       >
         <span className="warichu-text">{content}</span>
       </span>
-      <i ref={phStartEl}></i>
+      <i ref={phStartEl} className="warichu-ph-start"></i>
       <span className="warichu-placeholder">{halfContent}</span>
-      <i ref={phEndEl}></i>
+      <i ref={phEndEl} className="warichu-ph-end"></i>
     </span>
   );
 };

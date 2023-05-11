@@ -4,9 +4,9 @@
   src: url("./assets/SourceHanSerif.otf");
 }
 
-:root,
-body {
+:root,body,#root,.app {
   margin: 0;
+  height: 100%;
 }
 * {
   box-sizing: border-box;
@@ -42,7 +42,6 @@ body {
 .app {
   display: flex;
   flex-direction: column;
-  height: 100vh;
 }
 
 .input-area {
@@ -70,12 +69,11 @@ body {
   color: #1e3a8a;
 }
 
-.warichu > i {
+i.warichu-ph-start {
   margin-top: 0.5em;
 }
 
-.warichu > i + i {
-  margin-top: 0;
+i.warichu-ph-end {
   margin-bottom: 0.5em;
 }
 
@@ -110,4 +108,11 @@ body {
   width: var(--big-line-height);
   height: var(--end-bottom);
   /* background-color: #00f3; */
+}
+
+div.test-line-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: max-content;
 }
