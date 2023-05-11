@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![屏幕录制2023-05-10 21 39 04](https://github.com/slotDumpling/warichu/assets/67586451/6f0099c9-1d7f-4cd8-82a4-f4dc2a8627dd)
+![屏幕录制2023-05-11 16 05 41](https://github.com/slotDumpling/warichu/assets/67586451/1b409e1d-4e2e-4d97-aef9-994c1395d4b4)
 
 </div>
 
