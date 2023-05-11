@@ -98,6 +98,7 @@ export const Warichu: FC<{ content: string }> = ({ content }) => {
             "--end-bottom": endBottom + "px",
             "--before-height": rows === 1 ? beginTop + "px" : "100%",
             width: rows * lineHeight + "px",
+            textAlign: rows === 1 ? "start" : "justify",
           } as CSSProperties
         }
       >

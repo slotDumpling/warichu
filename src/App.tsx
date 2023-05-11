@@ -24,7 +24,7 @@ const initBlocks: TextBlock[] = [
   },
   {
     isWarichu: true,
-    content: "月は肉づきであり肉体関連を示す",
+    content: "月は肉づきであり",
   },
   {
     isWarichu: false,
@@ -49,7 +49,7 @@ const initBlocks: TextBlock[] = [
   },
   {
     isWarichu: true,
-    content: "「電」の下半部と同じ",
+    content: "電の下半部と同じ",
   },
   {
     isWarichu: false,
