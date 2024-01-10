@@ -22,6 +22,7 @@ export const Warichu: FC<{ content: string }> = ({ content }) => {
     document.body.appendChild(div);
     const { width: w1 } = p1.getBoundingClientRect();
     const { width: w2 } = p2.getBoundingClientRect();
+    console.log({ w1, w2 });
     div.remove();
     return w1 > w2 ? str1 : str2;
   }, [content]);
@@ -67,14 +68,14 @@ export const Warichu: FC<{ content: string }> = ({ content }) => {
         wrapperEl.current.getBoundingClientRect();
       const { bottom: phEndBottom, left: phEndLeft } =
         phEndEl.current.getBoundingClientRect();
-      setBeginTop(phStartTop - wrapperTop);
-      setEndBottom(wrapperBottom - phEndBottom);
 
       const computedStyle = window.getComputedStyle(phStartEl.current);
-
       const lineHeight = parseFloat(computedStyle.lineHeight);
       const fontSize = parseFloat(computedStyle.fontSize);
       const rows = Math.round((phStartLeft - phEndLeft) / lineHeight + 1);
+
+      setBeginTop(phStartTop - wrapperTop);
+      setEndBottom(wrapperBottom - phEndBottom - fontSize / 3);
       setRows(rows);
       setFontSize(fontSize);
       setLineHeight(lineHeight);

@@ -4,7 +4,10 @@
   src: url("./assets/SourceHanSerif.otf");
 }
 
-:root,body,#root,.app {
+:root,
+body,
+#root,
+.app {
   margin: 0;
   height: 100%;
 }
@@ -99,7 +102,7 @@ i.warichu-ph-end {
   float: left;
   clip-path: var(--polygon);
   shape-outside: var(--polygon);
-  /* background-color: #f003; */
+  background-color: #f003;
 }
 
 .warichu-text::before {
@@ -107,7 +110,7 @@ i.warichu-ph-end {
   float: right;
   width: var(--big-line-height);
   height: var(--end-bottom);
-  /* background-color: #00f3; */
+  background-color: #00f3;
 }
 
 div.test-line-wrapper {
@@ -117,7 +120,7 @@ div.test-line-wrapper {
   width: max-content;
 }
 
-@media (max-width: 640px)  {
+@media (max-width: 640px) {
   .text-area {
     font-size: 1em;
   }
